@@ -18,4 +18,4 @@ echo "pass: $pass"
 echo "ip: $ip"
 systemctl restart squid
 
-curl -F chat_id="$channel_id" -F text="✅ Proxy	$proxy_name	$ip	$port	$log	$pass" https://api.telegram.org/bot"$tg_bot_token"/sendMessage
+curl -F chat_id="$channel_id" -F text="✅ Proxy	$proxy_name\t$ip\u09$port	$log	$pass" https://api.telegram.org/bot"$tg_bot_token"/sendMessage
