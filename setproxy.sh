@@ -8,9 +8,10 @@ tg_bot_token=$(awk '/tg_bot_token:/ {print $NF}' config);
 proxy_name=$(awk '/proxy_name:/ {print $NF}' config);
 
 sudo apt install squid apache2-utils -y
-sudo curl -o /etc/squid/squid.conf https://raw.githubusercontent.com/AndreyHU1/squid_proxy/main/squid.conf
+sudo curl -o /etc/squid/squid.conf https://raw.githubusercontent.com/hasler102/squid_proxy/main/squid.conf
 sed -i s/"http_port 18763"/"http_port $port"/ /etc/squid/squid.conf
 sudo htpasswd -b -c /etc/squid/passwd "$log" "$pass"
+sudo ufw allow "$port"
 
 echo "port: $port"
 echo "log: $log"
